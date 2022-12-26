@@ -1,7 +1,7 @@
 
-## NX
+# NX
 
-### Intro
+## Intro
 
 - <https://nx.dev/getting-started/intro>
 - Monorepo: <https://nx.dev/more-concepts/why-monorepos>
@@ -28,7 +28,7 @@ Ok to proceed? (y) y
 √ Enable distributed caching to make your CI faster · No
 ```
 
-### Generate app manually (no federation)
+## Generate app manually (no federation)
 
 This statement installs nx and starts a wizard: (say no to distributed caching - paid option)
 
@@ -36,7 +36,7 @@ This statement installs nx and starts a wizard: (say no to distributed caching -
 npx create-nx-workspace myapp --preset=empty
 ```
 
-Install nx Angular
+### Install nx Angular
 
 Docs: <https://nx.dev/packages/angular>
 
@@ -45,9 +45,9 @@ cd myapp
 npm install --save-dev @nrwl/angular
 ```
 
-Use CLI
+### Use CLI
 
->Install @nrwl/angular globally or add 'npx' at the beginning
+>Install @nrwl/angular globally or add `npx` at the beginning
 
 ```cmd
 nx serve appName
@@ -57,14 +57,16 @@ nx lint appName
 nx e2e appName
 ```
 
-Generate Apps
+### Generate Apps
+
+>Use `--standalone` for new Angular Standalone Components (eliminate module, from Angular v15)
 
 ```cmd
-npx nx generate @nrwl/angular:application adminApp --style=scss
-npx nx generate @nrwl/angular:application customerAppTester --style=scss
+npx nx generate @nrwl/angular:application --standalone --routing=true --style=scss adminApp
+npx nx generate @nrwl/angular:application --standalone --routing=true --style=scss customerAppTester
 ```
 
-Add a library project (examples)
+### Add a library project (examples)
 
 Docs: 
 
@@ -75,24 +77,31 @@ Docs:
 Comments:
 
 - Use libraries for cleaner code - not for reuse in the first place
-- Mental Model: place 80% of your logic into the '\libs' folder and 20% into '\apps'
+- Mental Model: place 80% of your logic into the `\libs` folder and 20% into `\apps`
 
 ```cmd
-npx nx g @nrwl/angular:lib shared/ui --buildable
-npx nx g @nrwl/angular:lib shared/dataAccess --buildable
-npx nx g @nrwl/angular:lib shared/utilMath --buildable
+npx nx g @nrwl/angular:lib shared/ui         --buildable --standalone --style=scss --routing=true --lazy --parent=apps\admin-app\src\app\app.routes.ts
+npx nx g @nrwl/angular:lib shared/dataAccess --buildable --standalone --style=scss
+npx nx g @nrwl/angular:lib shared/utilMath   --buildable --standalone --style=scss
 ```
 
-Test the apps
+### Add a component
 
->add -o to open browser
+```cmd
+npx nx g @nrwl/angular:component MyAppTest --standalone --project=admin-app
+npx nx g @nrwl/angular:component MyLibTest --standalone --project=shared-ui
+```
+
+### Test the apps
+
+>Add -o to open browser
 
 ```cmd
 npx nx s admin-app
 npx nx s customer-app-tester
 ```
 
-### Federation
+## Federation
 
 > Separate app into small modules for faster builds
 
@@ -126,9 +135,9 @@ npx nx g @nrwl/angular:host customerAppTester
 
 Manually adopt (TODO: doing 2. + 3. the app will fail: why ???)
 
-1. 'module-federation.config.js' (add missing routes in customerAppTester)
-2. 'app.component.html' (add missing route to about)
-3. 'app.routes.ts' (add missing route to about)
+1. `module-federation.config.js` (add missing routes in customerAppTester)
+2. `app.component.html` (add missing route to about)
+3. `app.routes.ts` (add missing route to about)
 
 Run both apps and check routes (upper left corner):
 
@@ -144,6 +153,16 @@ Same statement for
 - test
 - lint
 
+## Information
+
+### Standalone component (no modules, new in Angular v15)
+
+Source: <https://www.youtube.com/watch?v=uY_Cy_wUmQI>
+
+### Micro Frontend
+
+<https://nx.dev/more-concepts/micro-frontend-architecture>
+
 ### Project Graph
 
 <https://nx.dev/angular-tutorial/2-project-graph>
@@ -153,8 +172,3 @@ Same statement for
 - package-based: no cli (optional: manually add nx.json)
 - integrated: use cli
 - <https://nx.dev/concepts/integrated-vs-package-based>
-
-### Micro Frontend
-
-<https://nx.dev/more-concepts/micro-frontend-architecture>
-
