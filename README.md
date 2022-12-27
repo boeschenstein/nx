@@ -45,18 +45,6 @@ cd myapp
 npm install --save-dev @nrwl/angular
 ```
 
-### Use CLI
-
->Install @nrwl/angular globally or add `npx` at the beginning
-
-```cmd
-nx serve appName
-nx build appName
-nx test appName
-nx lint appName
-nx e2e appName
-```
-
 ### Generate Apps
 
 >Use `--standalone` for new Angular Standalone Components (eliminate module, from Angular v15)
@@ -64,6 +52,16 @@ nx e2e appName
 ```cmd
 npx nx generate @nrwl/angular:application --standalone --routing=true --style=scss adminApp
 npx nx generate @nrwl/angular:application --standalone --routing=true --style=scss customerAppTester
+```
+
+### Use CLI
+
+```cmd
+nx serve appName
+nx build appName
+nx test appName
+nx lint appName
+nx e2e appName
 ```
 
 ### Add a library project (examples)
@@ -80,9 +78,9 @@ Comments:
 - Mental Model: place 80% of your logic into the `\libs` folder and 20% into `\apps`
 
 ```cmd
-npx nx g @nrwl/angular:lib shared/ui         --buildable --standalone --style=scss --routing=true --lazy --parent=apps\admin-app\src\app\app.routes.ts
-npx nx g @nrwl/angular:lib shared/dataAccess --buildable --standalone --style=scss
-npx nx g @nrwl/angular:lib shared/utilMath   --buildable --standalone --style=scss
+npx nx g @nrwl/angular:lib shared/ui         --standalone --style=scss --routing=true --lazy --parent=apps\admin-app\src\app\app.routes.ts
+npx nx g @nrwl/angular:lib shared/dataAccess --standalone --style=scss
+npx nx g @nrwl/angular:lib shared/utilMath   --standalone --style=scss --buildable --publishable
 ```
 
 ### Add a component
@@ -154,6 +152,9 @@ Same statement for
 - lint
 
 ## Information
+
+- Publishable: <https://nx.dev/more-concepts/buildable-and-publishable-libraries#publishable-libraries>
+- Buildable: <https://nx.dev/more-concepts/buildable-and-publishable-libraries#buildable-libraries>
 
 ### Standalone component (no modules, new in Angular v15)
 
