@@ -7,11 +7,20 @@
 - Monorepo: <https://nx.dev/more-concepts/why-monorepos>
 - Starter App (standalone app, optional): <https://nx.dev/getting-started/angular-standalone-tutorial>
 
+### Monorepo
+
+- Stores multiple, or even all, of your apps in one repository
+- Nx makes creating/managing this monorepo easier
+- Code shared between multiple apps in the repo can be abstracted into libraries
+- All of the dependencies for all of the apps *can* be managed and updated from a single package.json file
+
 ### Know more about Nx:
 
 1. Josh Morony: An Introduction to Nx Workspaces - Understanding Nx & Monorepos #1: <https://www.youtube.com/watch?v=QqM3MlyurUA>
-2. Josh Morony: This is what your Ionic app looks like on Nx (Folder structure, not much about Ionic in it): <https://www.youtube.com/watch?v=s37Gu4z878I>
+2. Josh Morony: This is what your Ionic app looks like on Nx: <https://www.youtube.com/watch?v=s37Gu4z878I>
+  - Folder structure, not much Ionic ionic specific stuff
 3. Josh Morony: How Nx and Monorepos just made my life 10x better: <https://www.youtube.com/watch?v=1eHlaVoeDfU>
+  - real live examples of nx mono repo
 4. Josh Morony: Architecting a (boring) real life project with Nx: <https://www.youtube.com/watch?v=XBaGOKtaEvM>
 
 ## Install Nx
@@ -176,9 +185,8 @@ Same statement for
 Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic in it):<https://www.youtube.com/watch?v=s37Gu4z878I>
 
 - apps\<my-app>\...
-- libs\[web, mobile]\[shell, home, ...], [feature, ui, data-access, utility]
-
-- descriptions:
+- libs\[web, mobile]\[shell, home, ...], [feature, ui, data-access, utility, auth, shared-ui, ...]
+- some descriptions:
   - feature: smart-components
   - ui: dumb components
   - data-access: services, ngrx files
