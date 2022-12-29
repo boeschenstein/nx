@@ -31,7 +31,9 @@ This statement installs nx and starts a wizard:
 npx create-nx-workspace@latest
 ```
 
-Wizard questions:
+Wizard questions: 
+
+>The wizard does not ask for standalone component (no module) atm, nx v15.4.2)
 
 ```bash
 Need to install the following packages:
@@ -52,10 +54,12 @@ A Nx workspace is a monorepo. Google has thousands of apps in a single monorepo.
 
 ### Generate workspace manually
 
-This statement installs nx and starts a wizard: (say no to distributed caching - paid option)
+Read about monorepo: (in theory) you need only 1 monorepo in your company. So the repo name yould be your company name.
+
+The follwoing statement installs nx and starts the installation: (say no to distributed caching (--nxCloud=false) if you want to reject the paid option)
 
 ```cmd
-npx create-nx-workspace myapp --preset=empty
+npx create-nx-workspace demo --preset=empty --nxCloud=false --skipGit
 ```
 
 An Introduction to Nx Workspaces - Understanding Nx & Monorepos: <https://www.youtube.com/watch?v=QqM3MlyurUA>
@@ -70,7 +74,7 @@ An Introduction to Nx Workspaces - Understanding Nx & Monorepos: <https://www.yo
 Docs: <https://nx.dev/packages/angular>
 
 ```cmd
-cd myapp
+cd demo
 npm install --save-dev @nrwl/angular
 ```
 
@@ -182,7 +186,13 @@ Same statement for
 
 ## Folder structure
 
-Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic in it):<https://www.youtube.com/watch?v=s37Gu4z878I>
+### Nx Reference Folder Structure
+
+<https://github.com/code-star/nx-reference>
+
+### Others
+
+Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic in it): <https://www.youtube.com/watch?v=s37Gu4z878I>
 
 - apps\<my-app>\...
 - libs\[web, mobile]\[shell, home, ...], [feature, ui, data-access, utility, auth, shared-ui, ...]
@@ -196,6 +206,21 @@ Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic 
   - gets stuff from apps\<my-app>\...
     - apps\<my-app>\src\app\app.routing.module.ts --> libs\mobile\shell\feature\src\lib\mobile-shell-routing.module.ts
     - apps\<my-app>\src\app\app.module.ts --> libs\mobile\shell\feature\src\lib\mobile-shell.module.ts
+
+## Extension
+
+- Install Nx Console from nrwl
+
+## NgRx
+
+Install ngrx schematics: <https://nx.dev/recipes/other/misc-ngrx>
+
+- Open Nx Console (extension)
+- select `Generate`
+- filter for ngrx
+- generate what you need
+
+!!!!!!!!!!!!! NgRx/Schematics does not support Angular Standard Components (29.12.2022) !!!!!!!!!!! todo
 
 ## Information
 
