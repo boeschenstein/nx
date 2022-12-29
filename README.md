@@ -1,11 +1,20 @@
 
-# NX
+# Nx
 
 ## Intro
 
 - <https://nx.dev/getting-started/intro>
 - Monorepo: <https://nx.dev/more-concepts/why-monorepos>
 - Starter App (standalone app, optional): <https://nx.dev/getting-started/angular-standalone-tutorial>
+
+### Know more about Nx:
+
+1. Josh Morony: An Introduction to Nx Workspaces - Understanding Nx & Monorepos #1: <https://www.youtube.com/watch?v=QqM3MlyurUA>
+2. Josh Morony: This is what your Ionic app looks like on Nx (Folder structure, not much about Ionic in it): <https://www.youtube.com/watch?v=s37Gu4z878I>
+3. Josh Morony: How Nx and Monorepos just made my life 10x better: <https://www.youtube.com/watch?v=1eHlaVoeDfU>
+4. Josh Morony: Architecting a (boring) real life project with Nx: <https://www.youtube.com/watch?v=XBaGOKtaEvM>
+
+## Install Nx
 
 This statement installs nx and starts a wizard:
 
@@ -28,13 +37,24 @@ Ok to proceed? (y) y
 √ Enable distributed caching to make your CI faster · No
 ```
 
-## Generate app manually (no federation)
+## Install Workspace and app (no federation)
+
+A Nx workspace is a monorepo. Google has thousands of apps in a single monorepo.
+
+### Generate workspace manually
 
 This statement installs nx and starts a wizard: (say no to distributed caching - paid option)
 
 ```cmd
 npx create-nx-workspace myapp --preset=empty
 ```
+
+An Introduction to Nx Workspaces - Understanding Nx & Monorepos: <https://www.youtube.com/watch?v=QqM3MlyurUA>
+
+- 1 package.json for all apps in the monorepo: 
+  - all apps have the same versions (angular, libraries)
+  - update it often (easy, you use the same workspace for all your apps)
+  - a set of well defined test is essential
 
 ### Install nx Angular
 
@@ -150,6 +170,24 @@ Same statement for
 - build
 - test
 - lint
+
+## Folder structure
+
+Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic in it):<https://www.youtube.com/watch?v=s37Gu4z878I>
+
+- apps\<my-app>\...
+- libs\[web, mobile]\[shell, home, ...], [feature, ui, data-access, utility]
+
+- descriptions:
+  - feature: smart-components
+  - ui: dumb components
+  - data-access: services, ngrx files
+  - utility: helper functions
+- every app should have a shell: libs\[web, mobile]\shell
+  - create it using nx. (creates file libs\mobile\shell\feature\src\lib\mobile-shell.module.ts) 
+  - gets stuff from apps\<my-app>\...
+    - apps\<my-app>\src\app\app.routing.module.ts --> libs\mobile\shell\feature\src\lib\mobile-shell-routing.module.ts
+    - apps\<my-app>\src\app\app.module.ts --> libs\mobile\shell\feature\src\lib\mobile-shell.module.ts
 
 ## Information
 
