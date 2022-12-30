@@ -195,7 +195,7 @@ Same statement for
 Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic in it): <https://www.youtube.com/watch?v=s37Gu4z878I>
 
 - apps\<my-app>\...
-- libs\[web, mobile]\[shell, home, ...], [feature, ui, data-access, utility, auth, shared-ui, ...]
+- libs\[web, mobile]\[shell, home, domain-a[\feature-a,...], domain-b, ...], [feature, ui, data-access, utility, auth, shared-ui, ...]
 - some descriptions:
   - feature: smart-components
   - ui: dumb components
@@ -211,16 +211,19 @@ Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic 
 
 - Install Nx Console from nrwl
 
-## NgRx
+## Generate code: Angular, NgRx
 
 Install ngrx schematics: <https://nx.dev/recipes/other/misc-ngrx>
 
 - Open Nx Console (extension)
-- select `Generate`
-- filter for ngrx
-- generate what you need
+- Select `Generate`
+- a) ngrx schematics (module not updated, not so rich files generated)
+  - filter for ngrx
+  - generate what you need ('feature' for complete set of files)
+- b) ng ngrx schematics (module updated, richer files generated)
+  - filter for ngrx: select @nrwl/angular - ngrx 'Add an ngrx config to a project')
 
-!!!!!!!!!!!!! NgRx/Schematics does not support Angular Standard Components (29.12.2022) !!!!!!!!!!! todo
+> NgRx/Schematics + nx ngrx schematics: both do not support Angular Standard Components (29.12.2022)
 
 ## Information
 
