@@ -174,7 +174,7 @@ Run both apps and check routes (upper left corner):
 
 ```cmd
 npx nx serve admin-app
-npx nx serve customer-app
+npx nx s -o customer-app
 ```
 
 Same statement for 
@@ -209,21 +209,81 @@ Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic 
 
 ## Extension
 
-- Install Nx Console from nrwl
+VS Code: Install `Nx Console` from nrwl
 
-## Generate code: Angular, NgRx
+## Nx Console: Generate code
+
+> NgRx/Schematics + nx ngrx schematics: both do not support Angular Standard Components (29.12.2022)
+
+My Feature Request: <https://github.com/nrwl/nx-console/issues/1460>
+
+### Generate code: Angular
+
+Learn NgRx using Pluralsight: Angular NgRx: Getting Started
+
+- by Deborah Kurata and Duncan Hunter
+- <https://app.pluralsight.com/library/courses/angular-ngrx-getting-started>
+
+Good lesson to learn Nx: Create an Angular App from scratch: create APM-Demo0 app yourself, using Nx and Nx Angular Schematics
+
+App to create: APM-Demo0 from <https://github.com/DeborahK/Angular-NgRx-GettingStarted>
+
+Demo app explained: <https://app.pluralsight.com/course-player?clipId=79e32924-ae98-4416-adf4-45514ae90ec6>
+
+Steps:
+
+- Create a new Nx Workspace or use an existing Nx Workspace
+- Open Nx Console (VS Code extension)
+- Select `generate` to generate a new app
+- Select `generate` to generate new components (menu, page-not-found, shell, welcome)
+- Select `generate` to generate new module: products
+  - Select `generate` to generate new components within this module (product-edit, product-list, product-shell)
+  - add input fields on product-edit
+  - add buttons like in the example
+- Select `generate` to generate new modules: user
+  - Select `generate` to generate new components within this module (login)
+  - add email and password input fields
+  - add login and cancel button, make them work
+
+### Generate code: NgRx
 
 Install ngrx schematics: <https://nx.dev/recipes/other/misc-ngrx>
 
-- Open Nx Console (extension)
-- Select `Generate`
-- a) ngrx schematics (module not updated, not so rich files generated)
+- Open Nx Console (VS Code extension)
+- Select `generate`
+  - even better: right-click on target folder and press `Nx generate...` (helpful in some situations)
+- Option a) ngrx schematics (module not updated, not so rich files generated)
   - filter for ngrx
   - generate what you need ('feature' for complete set of files)
-- b) ng ngrx schematics (module updated, richer files generated)
-  - filter for ngrx: select @nrwl/angular - ngrx 'Add an ngrx config to a project')
+- Option b) Nx ngrx schematics (module updated, richer files generated)
+  - filter for ngrx: select `@nrwl/angular - ngrx Add an ngrx config to a project`)
 
-> NgRx/Schematics + nx ngrx schematics: both do not support Angular Standard Components (29.12.2022)
+>`Feature`: Deborah Kurata: Angular apps are often organized in feature modules, it makes sence to layout the state by feature as well:
+minute 1:30: <https://app.pluralsight.com/course-player?clipId=64a235e1-b03a-4a57-ac05-326fc24fce75>
+
+APM structure, separated in features (sometimes called slices), called "Feature Module State Composition"
+
+>Use `Feature` to separate store into separate slices. This is called "Feature Module State Composition"
+
+- store (root, empty: has no redurcers)
+  - app feature
+  - user feature
+  - products feature
+    - products-list
+    - products-data
+  - customers feature
+
+Steps:
+
+- generate empty root store (without any reducers):
+    `npx nx generate @nrwl/angular:ngrx needed-but-not-used --module=apps/apm/src/app/app.module.ts --directory=apps/apm/src/app --barrels --facade --root --no-interactive`
+- generate products feature store: 
+  `npx nx generate @nrwl/angular:ngrx products --module=apps/apm/src/app/products/product.module.ts --barrels --facade --no-interactive `
+
+Check result
+
+- install dev tools: <https://ngrx.io/guide/store-devtools>
+- run app, toggle checkbox, check data in dev tools
 
 ## Information
 
