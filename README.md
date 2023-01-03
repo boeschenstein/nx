@@ -249,6 +249,14 @@ Steps:
 
 Install ngrx schematics: <https://nx.dev/recipes/other/misc-ngrx>
 
+`nx g @nrwl/angular:ngrx <featurename> --module=<path-to-module> --no-interactive [options]`
+
+Install root store
+
+`nx g @nrwl/angular:ngrx app --module=apps/<appname>/src/app/app.module.ts --root`
+
+Use Generators:
+
 - Open Nx Console (VS Code extension)
 - Select `generate`
   - even better: right-click on target folder and press `Nx generate...` (helpful in some situations)
@@ -277,8 +285,11 @@ Steps:
 
 - generate empty root store (without any reducers):
     `npx nx generate @nrwl/angular:ngrx needed-but-not-used --module=apps/apm/src/app/app.module.ts --directory=apps/apm/src/app --barrels --facade --root --no-interactive`
-- generate products feature store: 
-  `npx nx generate @nrwl/angular:ngrx products --module=apps/apm/src/app/products/product.module.ts --barrels --facade --no-interactive `
+- generate feature store for product-list-form: (different idea than PluralSight: @ngrx/schematics:store does not use ngrx\entity)
+  `npx nx generate @ngrx/schematics:store productListForm --module=products/product.module.ts --project=apm --skipTests --no-interactive`
+WIP  
+- generate feature store for product list (@nrwl/angular:ngrx is using ngrx\entity)
+  `npx nx generate @nrwl/angular:ngrx productListForm --module=apps/apm/src/app/products/product.module.ts --barrels --facade --no-interactive `
 
 Check result
 
