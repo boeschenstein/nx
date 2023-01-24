@@ -324,13 +324,16 @@ Source: <https://www.youtube.com/watch?v=uY_Cy_wUmQI>
 - Upgrade node/npm to latest LTS version
 - `npm upgrade -g`
 
-Check installation so far: This must run without any errors:
+Check installation so far: Both must run without any errors:
 
+- `npm i`
 - `npm ci`
 
 Upgrade Nx:
 
 - `npx nx migrate latest`
+- `npx nx migrate --run-migrations`
+- Details: <https://nx.dev/core-features/automate-updating-dependencies>
 
 Check if Update did succeed:
 
