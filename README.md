@@ -318,3 +318,23 @@ Source: <https://www.youtube.com/watch?v=uY_Cy_wUmQI>
 - package-based: no cli (optional: manually add nx.json)
 - integrated: use cli
 - <https://nx.dev/concepts/integrated-vs-package-based>
+
+## Upgrade Nx
+
+- Upgrade node/npm to latest LTS version
+- `npm upgrade -g`
+
+Check installation so far: This must run without any errors:
+
+- `npm ci`
+
+Upgrade Nx:
+
+- `npx nx migrate latest`
+
+Check if Update did succeed:
+
+- `npm i`
+- `npm ci`
+
+>todo: how to update angular ???
