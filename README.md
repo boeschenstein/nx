@@ -345,7 +345,7 @@ Check if Update did succeed:
 
 - in Nx, `Schematics` is called `Generators`
 - if in doubt, use `ngrx` generators
-  - for the [@schematics/angular:library schematic](https://github.com/angular/angular-cli/blob/main/packages/schematics/angular/library/schema.json)
-  - for the [@nrwl/angular:library schematic](https://github.com/nrwl/nx/blob/master/packages/angular/src/generators/library/schema.json)
-  - old: [@nrwl/workspace](https://nx.dev/recipes/adopting-nx/migration-angular#transforming-an-angular-cli-workspace-to-an-integrated-nx-monorepo)
+  - Nrwl (preferred): `@nrwl/angular:library` [description](https://github.com/nrwl/nx/blob/master/packages/angular/src/generators/library/schema.json)
+  - Angular: `@schematics/angular:library` [description](https://github.com/angular/angular-cli/blob/main/packages/schematics/angular/library/schema.json)
+  - old:`@nrwl/workspace` [description](https://nx.dev/recipes/adopting-nx/migration-angular#transforming-an-angular-cli-workspace-to-an-integrated-nx-monorepo)
   
