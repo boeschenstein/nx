@@ -190,10 +190,15 @@ Same statement for
 
 <https://github.com/code-star/nx-reference>
 
-### Others
+### Best to start
 
 Josh Morony: This is what your Ionic app looks like on Nx (not much about Ionic in it): <https://www.youtube.com/watch?v=s37Gu4z878I>
 
+- this is not really Ionic specific
+- you learn 
+  - how to refactor Router-Module (lazy) and Lib-Module out from app to lib
+  - how to structure app and libs in nx
+  - use of generator
 - apps\<my-app>\...
 - libs\[web, mobile]\[shell, home, domain-a[\feature-a,...], domain-b, ...], [feature, ui, data-access, utility, auth, shared-ui, ...]
 - some descriptions:
