@@ -331,7 +331,7 @@ Source: <https://www.youtube.com/watch?v=uY_Cy_wUmQI>
 
 Check installation so far: Both must run without any errors:
 
-- `npm i`
+- `npm i -f`
 - `npm ci`
 
 Upgrade Nx:
@@ -341,10 +341,12 @@ Upgrade Nx:
 
 Check if Update did succeed:
 
-- `npm i`
+- `npm i -f`
 - `npm ci`
 
->todo: how to update angular ???
+New Upgrade features: <https://www.youtube.com/watch?v=AQV4WFldwlY>
+- How to update Angular within Nx
+- Upgrade Nx without upgrading Angular or Typescript
 
 ## Schematics vs Generators
 
