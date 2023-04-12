@@ -337,6 +337,7 @@ Check installation so far: Both must run without any errors:
 Upgrade Nx:
 
 - `npx nx migrate @nrwl/workspace@latest`
+- if a migration file has been created, run it now: `nx migrate --run-migrations` and delete it (you do not need it anymore)
 - Details: <https://nx.dev/core-features/automate-updating-dependencies>
 
 Check if Update did succeed:
