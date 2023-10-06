@@ -334,13 +334,26 @@ Check installation so far: Both must run without any errors:
 - `npm i -f`
 - `npm ci`
 
-Upgrade Nx:
+Upgrade Nx (workplace only?):
 
-- `npx nx migrate @nrwl/workspace@latest`
-- if a migration file has been created, run it now: `nx migrate --run-migrations` and delete it (you do not need it anymore)
 - Details: <https://nx.dev/core-features/automate-updating-dependencies>
+- old:? `npx nx migrate @nrwl/workspace@latest`
+- `npm i -f`
+- `npm ci`
+- if a migration file has been created, run it now: `nx migrate --run-migrations` and delete it (you do not need it anymore)
+- Check if Update did succeed:
 
-Check if Update did succeed:
+- `npm i -f`
+- `npm ci`
+
+Upgrade Nx (workplace and angular):
+
+- `npx nx@latest migrate latest`
+- for cypress and if needed in company: SET HTTP_PROXY=<your_company_proxy>
+- `npm i -f`
+- `npm ci  --legacy-peer-deps` // there was no other way
+- if a migration file has been created, run it now: `nx migrate --run-migrations` and delete it (you do not need it anymore)
+- Check if Update did succeed:
 
 - `npm i -f`
 - `npm ci`
