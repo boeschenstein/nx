@@ -334,7 +334,7 @@ Check installation so far: Both must run without any errors:
 - `npm i -f`
 - `npm ci`
 
-Upgrade Nx (workplace only?):
+Upgrade Nx + Angular:
 
 - Details: <https://nx.dev/core-features/automate-updating-dependencies>
 - `npx nx migrate latest`
