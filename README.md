@@ -338,21 +338,11 @@ Upgrade Nx (workplace only?):
 
 - Details: <https://nx.dev/core-features/automate-updating-dependencies>
 - `npx nx migrate latest`
-  - old:! `npx nx migrate @nrwl/workspace@latest`
+  - if you get proxy error (eq. for cypress) or if needed in company: SET HTTP_PROXY=<your_company_proxy>
+  - if needed: update workplace only: `npx nx migrate @nrwl/workspace@latest`
 - `npm i -f`
 - `npm ci`
-- if a migration file has been created, run it now: `nx migrate --run-migrations` and delete it (you do not need it anymore)
-- Check if Update did succeed:
-
-- `npm i -f`
-- `npm ci`
-
-Upgrade Nx (workplace and angular):
-
-- `npx nx@latest migrate latest`
-- for cypress and if needed in company: SET HTTP_PROXY=<your_company_proxy>
-- `npm i -f`
-- `npm ci  --legacy-peer-deps` // there was no other way
+ - or `npm ci  --legacy-peer-deps` // there was no other way
 - if a migration file has been created, run it now: `nx migrate --run-migrations` and delete it (you do not need it anymore)
 - Check if Update did succeed:
 
@@ -360,6 +350,7 @@ Upgrade Nx (workplace and angular):
 - `npm ci`
 
 New Upgrade features: <https://www.youtube.com/watch?v=AQV4WFldwlY>
+
 - How to update Angular within Nx
 - Upgrade Nx without upgrading Angular or Typescript
 
