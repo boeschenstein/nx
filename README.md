@@ -337,6 +337,7 @@ Check installation so far: Both must run without any errors:
 Upgrade Nx + Angular:
 
 - Details: <https://nx.dev/core-features/automate-updating-dependencies>
+- Version Matrix: <https://nx.dev/nx-api/angular/documents/angular-nx-version-matrix>
 - `npx nx migrate latest`
   - if you get proxy error (eq. for cypress) or if needed in company: SET HTTP_PROXY=<your_company_proxy>
   - if needed: update workplace only: `npx nx migrate @nrwl/workspace@latest`
