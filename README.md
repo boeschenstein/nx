@@ -333,6 +333,7 @@ Check installation so far: Both must run without any errors:
 
 - `npm i -f`
 - `npm ci`
+ - or `npm ci  --legacy-peer-deps` // there was no other way
 
 Upgrade Nx + Angular:
 
@@ -341,14 +342,12 @@ Upgrade Nx + Angular:
 - `npx nx migrate latest`
   - if you get proxy error (eq. for cypress) or if needed in company: SET HTTP_PROXY=<your_company_proxy>
   - if needed: update workplace only: `npx nx migrate @nrwl/workspace@latest`
-- `npm i -f`
-- `npm ci`
- - or `npm ci  --legacy-peer-deps` // there was no other way
 - if a migration file has been created, run it now: `nx migrate --run-migrations` and delete it (you do not need it anymore)
 - Check if Update did succeed:
 
 - `npm i -f`
 - `npm ci`
+ - or `npm ci  --legacy-peer-deps` // there was no other way
 
 New Upgrade features: <https://www.youtube.com/watch?v=AQV4WFldwlY>
 
